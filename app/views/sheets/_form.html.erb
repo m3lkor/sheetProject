@@ -1,0 +1,26 @@
+<%= form_for(@sheets) do |f| %>
+  <% if @sheets.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@sheets.errors.count, "error") %> prohibited this sheet from being saved:</h2>
+
+      <ul>
+      <% @sheets.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :charachter_name %><br />
+    <%= f.text_field :charachter_name %>
+  </div>
+  <div class="field">
+    <%= f.label :game_id %><br />
+    <%= f.collection_select :game_id, Game.all,:id,:game_name, { :prompt => 'Select a Game' } %>  
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

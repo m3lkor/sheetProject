@@ -1,0 +1,29 @@
+<h1>Listing sheets</h1>
+
+<table>
+  <tr>
+  	<th>Player ID</th>
+    <th>Player name</th>
+    <th>Charachter name</th>
+    <th>Game</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @sheets.each do |sheet| %>
+  <tr>
+  	<td><%= sheet.user_id %></td>
+    <td><%= sheet.player_name %></td>
+    <td><%= sheet.charachter_name %></td>
+    <td><%= sheet.game.game_name %></td>
+    <td><%= link_to 'Show', sheet %></td>
+    <td><%= link_to 'Edit', edit_sheet_path(sheet) %></td>
+    <td><%= link_to 'Destroy', sheet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Sheet', new_sheet_path %>
