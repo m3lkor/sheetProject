@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Module name:</b>
+  <%= @gdr_module.module_name %>
+</p>
+
+<p>
+  <b>Module game:</b>
+  <%= @gdr_module.module_game %>
+</p>
+
+<p>
+  <b>Module type:</b>
+  <%= @gdr_module.module_type %>
+</p>
+
+
+<%= link_to 'Edit', edit_gdr_module_path(@gdr_module) %> |
+<%= link_to 'Back', gdr_modules_path %>

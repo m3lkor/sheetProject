@@ -1,15 +1,14 @@
 class ApplicationController < ActionController::Base
+  
   protect_from_forgery
-  protected
-  def authorize_blogger!
-    if user_signed_in?
-      return
-    elsif user_signed_in?
-      flash[:notice] = 'You must be an authorized blogger to do that'
-      redirect_to :root
+  protected 
+  
+  def after_sign_in_path_for(user)
+    if user.is_admin?
+      admin_sheets_path
     else
-      flash[:notice] = 'You need to sign in first'
-      redirect_to new_user_session_path
+      sheets_path
     end
   end
+  
 end

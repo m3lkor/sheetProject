@@ -1,7 +1,11 @@
 Sheetmanager::Application.routes.draw do
-  get "sheets_container/index"
+  resources :gdr_modules
 
   devise_for :users
+  
+  namespace :admin do
+    resources :sheets
+  end
 
   #root 'sheets_container#index', as:'index'
 
@@ -18,6 +22,8 @@ Sheetmanager::Application.routes.draw do
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   resources :sheets, :games
+  
+  resources :home, only: [:show]
   
   # Sample resource route with options:
   #   resources :products do
@@ -55,8 +61,8 @@ Sheetmanager::Application.routes.draw do
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
   #
- root :to => 'sheets_container#index', :as => 'index'
-
+ root :to => 'home#show'
+ 
   # See how all your routes lay out with "rake routes"
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140209164555) do
+ActiveRecord::Schema.define(:version => 20140211224852) do
 
   create_table "games", :force => true do |t|
     t.string   "game_name"
@@ -19,6 +19,22 @@ ActiveRecord::Schema.define(:version => 20140209164555) do
     t.boolean  "is_active",    :default => false
     t.datetime "created_at",                      :null => false
     t.datetime "updated_at",                      :null => false
+  end
+
+  create_table "gdr_modules", :force => true do |t|
+    t.string   "module_name"
+    t.integer  "module_game"
+    t.integer  "module_type"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.integer  "game_id"
+  end
+
+  create_table "sheet_game_modules", :force => true do |t|
+    t.integer  "mod_sheet"
+    t.integer  "mod_game"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "sheets", :force => true do |t|

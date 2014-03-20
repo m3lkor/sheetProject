@@ -8,4 +8,11 @@ class User < ActiveRecord::Base
   attr_accessible :email,:player_name ,:password, :password_confirmation, :remember_me
   # attr_accessible :title, :body
   has_many :sheets
+  
+  scope :admins, where(admin: true)
+  
+  def is_admin?
+    self.admin?
+  end
+  
 end

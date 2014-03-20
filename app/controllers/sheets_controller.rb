@@ -1,16 +1,16 @@
 class SheetsController < ApplicationController
+  
+  before_filter :authenticate_user!
+  
   # GET /sheets
   # GET /sheets.json
+  
+  
   def index
-    if user_signed_in?
-     #@sheets = Sheet.include(:game).where("user_id = ?", current_user.id)
-      @sheets = current_user.sheets.includes(:game)
-      sheet_game = @sheets.first.game.game_name
-    else
-        flash[:notice] = 'You need to sign to see your charachter list'
-        redirect_to new_user_session_path
-    end
-
+    
+    #@sheets = Sheet.include(:game).where("user_id = ?", current_user.id)
+    @sheets = current_user.sheets.includes(:game)
+    
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @sheets }

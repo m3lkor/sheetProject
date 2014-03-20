@@ -1,0 +1,13 @@
+!!!
+%html
+  %head
+    %title Sheetmanager
+    = stylesheet_link_tag "admin", :media => "all"
+    = csrf_meta_tags
+    
+    %meta{name: 'viewport', content: 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'}
+  %body
+    .nav
+      .navbar-text Login bar
+      .navbar-text Lorem Ipsum
+      = render 'session'

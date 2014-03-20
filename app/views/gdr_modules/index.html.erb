@@ -1,0 +1,27 @@
+<h1>Listing gdr_modules</h1>
+
+<table>
+  <tr>
+    <th>Module name</th>
+    <th>Module game</th>
+    <th>Module type</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @gdr_modules.each do |gdr_module| %>
+  <tr>
+    <td><%= gdr_module.module_name %></td>
+    <td><%= gdr_module.module_game %></td>
+    <td><%= gdr_module.module_type %></td>
+    <td><%= link_to 'Show', gdr_module %></td>
+    <td><%= link_to 'Edit', edit_gdr_module_path(gdr_module) %></td>
+    <td><%= link_to 'Destroy', gdr_module, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Gdr module', new_gdr_module_path %>

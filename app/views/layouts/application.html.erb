@@ -1,18 +1,39 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Sheetmanager</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <title>CharactherSheet</title>
+  <%= stylesheet_link_tag    "application" , :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
-<body>
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+	<body>
+		<div class="container">
+			<div class="alert alert-info alert-dismissable">
+				<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+				<%= flash[:notice] %>
+			</div>
+			
+			<nav class="navbar navbar-inverse" role="navigation">
+				<div class="container-fluid">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+					    </button>
+      					<a class="navbar-brand" href="#">Sheets</a>
+					</div>
+					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+						<%= render_navigation :expand_all => true %>
+					</div>
+				</div>
 
-<div id="secondaryContent">
-    <%= render 'common/session' %>
-  </div>
-	<%= yield %>
-</body>
+			</nav>
+			
+			<div class="jumbotron">
+				<%= yield %>
+			</div>
+		</div>
+	</body>
 </html>

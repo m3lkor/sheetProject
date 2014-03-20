@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  mod_sheet: 1
+  mod_game: 1
+
+two:
+  mod_sheet: 1
+  mod_game: 1

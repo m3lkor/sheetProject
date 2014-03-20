@@ -1,0 +1,20 @@
+!!!
+%html
+  %head
+    %title Sheetmanager
+    = stylesheet_link_tag "admin", :media => "all"
+    = csrf_meta_tags
+  
+    %meta{name: 'viewport', content: 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'}
+
+  %body
+    .container
+      %p.notice= notice
+      %p.alert= alert
+    
+      #secondaryContent
+        = render 'admin/common/session'
+        
+      = yield
+      
+      = javascript_include_tag "application"

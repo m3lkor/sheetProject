@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  module_name: MyString
+  module_game: 1
+  module_type: 1
+
+two:
+  module_name: MyString
+  module_game: 1
+  module_type: 1

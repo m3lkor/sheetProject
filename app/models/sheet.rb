@@ -5,4 +5,6 @@ class Sheet < ActiveRecord::Base
   
   belongs_to :user
   belongs_to :game
+  
+  has_many :gdr_modules, :through => :sheet_game_modules 
 end
